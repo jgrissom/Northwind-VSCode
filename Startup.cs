@@ -26,21 +26,22 @@ namespace Northwind
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-                endpoints.MapGet("/hello/{name:alpha}", async context =>
-                {
-                    var name = context.Request.RouteValues["name"];
-                    await context.Response.WriteAsync($"Hello {name}!");
-                });
-            });
+            // app.UseEndpoints(endpoints =>
+            // {
+            //     endpoints.MapGet("/", async context =>
+            //     {
+            //         await context.Response.WriteAsync("Hello World!");
+            //     });
+            //     endpoints.MapGet("/hello/{name:alpha}", async context =>
+            //     {
+            //         var name = context.Request.RouteValues["name"];
+            //         await context.Response.WriteAsync($"Hello {name}!");
+            //     });
+            // });
         }
     }
 }
