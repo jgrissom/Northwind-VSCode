@@ -34,6 +34,11 @@ namespace Northwind
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
+                endpoints.MapGet("/hello/{name:alpha}", async context =>
+                {
+                    var name = context.Request.RouteValues["name"];
+                    await context.Response.WriteAsync($"Hello {name}!");
+                });
             });
         }
     }
